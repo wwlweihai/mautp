@@ -58,17 +58,19 @@ function index($window,Restangular,$scope) {
                 $scope.data.gifts.push(object);
         }
     });
-    function signUp(){
-        console.log(JSON.stringify($scope.form));
-        var Applicant = AV.Object.extend("applicant");
-        var applicant = new Applicant();
-        applicant.save($scope.form, {
-            success: function(object) {
-                alert("报名成功！");
-                //$window.location.href = "http://chengdu.auto.163.com/";
-            }
-        });
-
+    function signUp(valid){
+        if(valid){
+            var Applicant = AV.Object.extend("applicant");
+            var applicant = new Applicant();
+            applicant.save($scope.form, {
+                success: function(object) {
+                    alert("报名成功！");
+                    //$window.location.href = "http://chengdu.auto.163.com/";
+                }
+            });
+        }else{
+            alert("请把信息填写完整！");
+        }
     }
      function updateSelection(position, entities) {
          $scope.form.gift = entities[position].name;

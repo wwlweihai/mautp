@@ -1,0 +1,10 @@
+{
+  "name": "yzx",
+  "private": true,
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#master",
+    "fontawesome": "~4.3.0",
+    "restangular": "~1.5.1",
+    "lodash": "~3.9.3"
+  }
+}

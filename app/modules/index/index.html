@@ -60,11 +60,12 @@
                     </div>
                 </div>
             </div>
-            <div class="row row-wrap text-center" ng-repeat="gift in data.gifts">
-                <div class="col col-66 gift-img text-center">
+            <div class="row row-wrap" ng-repeat="gift in data.gifts">
+                <div class="col col-66 text-center gift-img">
                     <img ng-src="{{gift.url}}" alt=""/>
                 </div>
-                <div class="col col-34">
+                <div class="col col-33 stable">
+                    das
                     <div class="gift-name stable">{{gift.name}}</div>
                     <label class="checkbox">
                         <input type="checkbox" ng-model="gift.checked"
@@ -80,8 +81,8 @@
         </div>
         <div class="row text-center">
             <div class="col col-100">
-                <button type="button" class="btn btn-lg" ng-click="signUp(myform.$valid)"
-                        style="background-color: transparent;color: white;border-color: white;margin-top: 15px; ">提交报名
+                <button type="button" class="btn button-large" ng-click="signUp(myform.$valid)"
+                        style="background-color: transparent;color: white;border-color: white;margin-top: 15px;padding-left: 20px;padding-right: 20px;">提交报名
                 </button>
             </div>
         </div>

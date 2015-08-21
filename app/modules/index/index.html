@@ -35,7 +35,7 @@
                         品牌：
                     </div>
                     <div class="col col-80  item-selector text-left">
-                        <select ng-model="data.brand" ng-options="brand.N for brand in data.brandList"
+                        <select ng-model="data.brand" ng-options="brand.N group by brand.L for brand in data.brandList"
                                 ng-change="brandSelect(brand)" required></select>
                     </div>
                 </div>

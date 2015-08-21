@@ -1,16 +1,19 @@
 angular.module('app.controller')
 .controller('index',index);
 index.$inject = [
+    '$ionicPopover',
     '$window',
     'Restangular',
     '$scope'
 ];
-function index($window,Restangular,$scope) {
+function index($ionicPopover,$window,Restangular,$scope) {
     $scope.signUp = signUp;
     $scope.updateSelection = updateSelection;
     $scope.form = {};
     $scope.data = {};
+    $scope.elange = elange;
     $scope.data.gifts = [];
+    $scope.data.elangeImgUrl;
     $scope.data.brandList = [];
     $scope.data.areaList = [
         {name:'成都市'},
@@ -72,7 +75,7 @@ function index($window,Restangular,$scope) {
             alert("请把信息填写完整！");
         }
     }
-     function updateSelection(position, entities) {
+    function updateSelection(position, entities) {
          $scope.form.gift = entities[position].name;
         angular.forEach(entities, function(subscription, index) {
             if (position != index)
@@ -93,6 +96,19 @@ function index($window,Restangular,$scope) {
                 $scope.err = true;
             }
         });
+    }
+    var template = '<ion-popover-view><ion-content>' +
+        ' {{popover.scope.data.elangeImgUrl}}' +
+        '</ion-content></ion-popover-view>';
+    $scope.popover = $ionicPopover.fromTemplate(template, {
+        scope: $scope
+    });
+    function elange($event,url){
+        $scope.data.elangeImgUrl = url;
+
+        $scope.popover.show($event);
+        console.log(url);
+        console.log("elange");
     }
 };
 
